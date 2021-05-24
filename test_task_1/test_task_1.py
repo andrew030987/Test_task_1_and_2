@@ -1,11 +1,11 @@
 import requests
 import unittest
 
-class TestCrudMethods(unittest.TestCase):
+class TestCrudOperations(unittest.TestCase):
     def test_create(self):
         c = requests.post('https://petstore.swagger.io/v2/user', json={
         "id": 0,
-        "username": "UName",
+        "username": "Uname",
         "firstName": "Fname",
         "lastName": "Lname",
         "email": "test@test.com",
@@ -13,6 +13,7 @@ class TestCrudMethods(unittest.TestCase):
         "phone": "123",
         "userStatus": 0})
         self.assertTrue(c.ok)
+
 
     def test_read(self):
         r = requests.get('https://petstore.swagger.io/v2/user/UName')
@@ -36,6 +37,8 @@ class TestCrudMethods(unittest.TestCase):
         d = requests.delete('https://petstore.swagger.io/v2/user/UName')
         self.assertTrue(d.ok)
     
+    
+
     
 if __name__ == '__main__':
     unittest.main()
