@@ -12,8 +12,7 @@ class TestCrudMethods(unittest.TestCase):
         "password": "pass",
         "phone": "123",
         "userStatus": 0})
-        self.assertEqual(c.status_code, 200)
-        # self.assertTrue(c.ok)
+        self.assertTrue(c.ok)
 
     def test_read(self):
         r = requests.get('https://petstore.swagger.io/v2/user/UName')
@@ -30,13 +29,14 @@ class TestCrudMethods(unittest.TestCase):
         "password": "pass",
         "phone": "123",
         "userStatus": 0})
-        self.assertEqual(u.status_code, 200)
+        self.assertTrue(u.ok)
 
 
     def test_delete(self):
         d = requests.delete('https://petstore.swagger.io/v2/user/UName')
-        self.assertEqual(d.status_code, 200)
+        self.assertTrue(d.ok)
     
     
-
+if __name__ == '__main__':
+    unittest.main()
 
